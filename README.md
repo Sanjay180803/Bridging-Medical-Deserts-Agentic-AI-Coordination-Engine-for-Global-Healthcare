@@ -284,6 +284,11 @@ This system is designed to be extensible:
 - Add medical knowledge rules in `medical_knowledge.py`
 - Customize routing logic in supervisors
 
+## My Contributions
+- Designed geospatial accessibility scoring agent
+- Implemented skill–infrastructure validation logic
+- Built LangChain orchestration workflow
+  
 ## License
 
 This system uses publicly available US Government healthcare data.
