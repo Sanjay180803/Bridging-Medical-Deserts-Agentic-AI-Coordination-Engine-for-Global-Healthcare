@@ -6,6 +6,7 @@ OPTIMIZED VERSION - API-based embeddings only (no local models).
 import os
 import json
 from typing import Dict, Any, List
+from medical_deserts.state import latest_user_question
 import pandas as pd
 import chromadb
 from chromadb.config import Settings
@@ -312,7 +313,7 @@ Enhanced query:"""
         Returns:
             Partial state update
         """
-        user_question = state["messages"][-1].content
+        user_question = latest_user_question(state)
         
         # Extract filters from question if needed
         filters = self._extract_filters_from_question(user_question)

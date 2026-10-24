@@ -6,7 +6,7 @@ Creates hypothetical facility states without mutating real data
 import uuid
 import pandas as pd
 from typing import Dict, Any, List
-from medical_deserts.state import AppState, CounterfactualState, SimulatedFacility
+from medical_deserts.state import AppState, latest_user_question, CounterfactualState, SimulatedFacility
 from medical_deserts.config import Config
 
 
@@ -36,7 +36,7 @@ NORMALIZATION REQUIREMENT:
         """
         print("\n🔮 CounterfactualEngine: Creating simulation...")
         
-        user_question = state["messages"][-1].content
+        user_question = latest_user_question(state)
         
         # Parse counterfactual scenario from question
         scenario = self._parse_scenario(user_question)

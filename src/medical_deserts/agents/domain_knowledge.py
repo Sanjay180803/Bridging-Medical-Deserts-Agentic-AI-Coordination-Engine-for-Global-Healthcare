@@ -1,6 +1,7 @@
 from langchain_core.prompts import PromptTemplate
 from langchain_core.messages import AIMessage
 from typing import Dict
+from medical_deserts.state import latest_user_question
 import json
 
 class DomainKnowledgeAgent:
@@ -154,13 +155,11 @@ USER QUERY:
 """)
 
     def __call__(self, state: Dict) -> Dict:
-        user_query = state["messages"][-1].content
-        print("First shit l" , user_query)
+        user_query = latest_user_question(state)
         response = self.llm.invoke(
             self.prompt.format(query=user_query)
         )
 
-        print("After shit" , response.content)
 
         # HARD SAFETY: ensure valid JSON
         try:
@@ -170,7 +169,6 @@ USER QUERY:
                 f"DomainKnowledgeAgent produced invalid JSON:\n{response.content}"
             )
         
-        print("normalsed stuff" , normalized_constraints)
         # state.update({"normalized_constraints": normalized_constraints,
         #                "messages": state["messages"] + [
         #         AIMessage(content="Query normalized for dataset compatibility.")

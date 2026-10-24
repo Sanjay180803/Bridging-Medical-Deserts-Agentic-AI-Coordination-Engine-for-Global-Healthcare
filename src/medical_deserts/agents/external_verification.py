@@ -5,7 +5,7 @@ Uses SERP API and Tavily API to validate facility claims and fill data gaps
 
 import requests
 from typing import Dict, Any, List, Optional
-from medical_deserts.state import AppState, AnalyticsResult    
+from medical_deserts.state import AppState, latest_user_question, AnalyticsResult    
 from medical_deserts.config import Config
 
 
@@ -216,7 +216,7 @@ VERIFICATION CONTEXT:
         Returns:
             Additional information from external sources
         """
-        user_question = state["messages"][-1].content
+        user_question = latest_user_question(state)
         
         # Create search query to fill gaps
         query = f"{user_question} healthcare facilities United States statistics"

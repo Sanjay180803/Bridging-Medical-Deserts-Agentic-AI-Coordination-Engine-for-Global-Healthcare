@@ -185,3 +185,18 @@ class AppState(TypedDict, total=False):
     # ✅ CRITICAL FIX: Domain knowledge normalization field
     # This MUST be defined here or LangGraph will drop it!
     normalized_constraints: Dict[str, Any]
+
+
+def latest_user_question(state) -> str:
+    """The most recent message from the user.
+
+    Agents must use this rather than ``state["messages"][-1]``: nodes such
+    as DomainKnowledgeAgent append AI messages, after which the last
+    message is no longer the question.
+    """
+    from langchain_core.messages import HumanMessage
+
+    for msg in reversed(state.get("messages", [])):
+        if isinstance(msg, HumanMessage):
+            return msg.content
+    return ""

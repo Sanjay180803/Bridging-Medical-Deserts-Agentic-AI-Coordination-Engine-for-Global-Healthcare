@@ -5,7 +5,7 @@ Combines geographic access with capability verification
 
 import math
 from typing import Dict, Any, List
-from medical_deserts.state import AppState, ReachabilityScore, AnalyticsResult
+from medical_deserts.state import AppState, latest_user_question, ReachabilityScore, AnalyticsResult
 from medical_deserts.config import Config
 
 
@@ -123,7 +123,7 @@ class ReachabilityAgent:
         scores = {}
         
         # Extract target capability from user question
-        user_question = state["messages"][-1].content.lower()
+        user_question = latest_user_question(state).lower()
         target_capability = self._extract_target_capability(user_question)
         
         # Handle proximity-based geo results
