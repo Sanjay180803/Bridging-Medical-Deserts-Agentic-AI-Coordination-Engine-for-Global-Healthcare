@@ -3,7 +3,7 @@ DataQualityRouter - Routes analytics queries to specialized agents
 """
 
 from typing import Dict, List
-from medical_deserts.state import AppState
+from medical_deserts.state import AppState, latest_user_question
 from medical_deserts.config import Config
 
 
@@ -27,7 +27,7 @@ class DataQualityRouter:
         """
         print("\n🧭 DataQualityRouter: Planning analytics pipeline...")
         
-        user_question = state["messages"][-1].content.lower()
+        user_question = latest_user_question(state).lower()
         plan = []
         
         # Skill-infrastructure mismatch detection

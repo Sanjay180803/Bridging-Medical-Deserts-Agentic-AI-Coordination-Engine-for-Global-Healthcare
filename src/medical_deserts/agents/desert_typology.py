@@ -5,7 +5,7 @@ Identifies geographic, capability, and skill deserts
 
 from typing import Dict, Any, List
 from collections import defaultdict
-from medical_deserts.state import AppState, DesertClassification, AnalyticsResult
+from medical_deserts.state import AppState, latest_user_question, DesertClassification, AnalyticsResult
 from medical_deserts.config import Config
 
 
@@ -113,7 +113,7 @@ class DesertTypologyAgent:
         classifications = {}
         
         # Extract target capability from user question
-        user_question = state["messages"][-1].content.lower()
+        user_question = latest_user_question(state).lower()
         target_capability = self._extract_capability(user_question)
         
         # Analyze reachability scores

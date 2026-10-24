@@ -8,7 +8,7 @@ from typing import Dict, Any
 from typing_extensions import TypedDict
 from langchain_core.messages import BaseMessage, HumanMessage, AIMessage
 from langgraph.graph import StateGraph, END
-from medical_deserts.state import AppState
+from medical_deserts.state import AppState, latest_user_question
 from medical_deserts.config import Config
 
 # Import all agents
@@ -33,7 +33,7 @@ class SupervisorAgent:
     
     def __call__(self, state: AppState) -> Dict:
         """Classify user intent and route to appropriate agent."""
-        user_message = state["messages"][-1].content
+        user_message = latest_user_question(state)
 
         print(f"\n🧭 SupervisorAgent: Analyzing user message: {user_message}")
         
@@ -99,14 +99,13 @@ class ResponseAgent:
     def __call__(self, state: AppState) -> Dict:
         """Synthesize final response from all agent results."""
         print(f"\n📝 ResponseAgent: Synthesizing final answer for intent: {state.get('intent', 'unknown')}")
-        print("Response state : " , state)
         
         # Gather all results
         results_summary = self._compile_results(state)
         citations = self._format_citations(state.get("citations", []))
         
         # Use LLM to generate natural language response
-        user_question = state["messages"][-1].content
+        user_question = latest_user_question(state)
         
         prompt = f"""You are a healthcare data analyst. Answer the user's question using ONLY the data provided.
 
@@ -388,8 +387,12 @@ def build_enhanced_graph() -> StateGraph:
         }
     )
     
-    # Analytics agents loop back
-    for agent in ["SkillInfraAgent", "ReachabilityAgent", "ContradictionAgent", "DesertTypologyAgent"]:
+    # Analytics agents loop back. GeoAgent is included: it is the first
+    # step of reachability and desert plans, and with a static edge to
+    # ResponseAgent those plans used to stop after it, so ReachabilityAgent
+    # and DesertTypologyAgent never ran. With no plan (a plain GEO_QUERY)
+    # route_analytics_pipeline returns ResponseAgent.
+    for agent in ["GeoAgent", "SkillInfraAgent", "ReachabilityAgent", "ContradictionAgent", "DesertTypologyAgent"]:
         graph.add_conditional_edges(
             agent,
             route_analytics_pipeline,
@@ -428,7 +431,6 @@ def build_enhanced_graph() -> StateGraph:
     graph.add_edge("ExternalVerificationAgent", "ResponseAgent")
     
     # Other standard edges
-    graph.add_edge("GeoAgent", "ResponseAgent")
     graph.add_edge("CounterfactualEngine", "GeoAgent")  # Re-run geo with simulation
     graph.add_edge("ResponseAgent", END)
 

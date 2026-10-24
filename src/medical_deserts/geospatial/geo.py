@@ -5,7 +5,7 @@ GeoAgent - Geospatial analysis agent for US healthcare facilities
 import math
 import pandas as pd
 from typing import Dict, Any, List
-from medical_deserts.state import AppState
+from medical_deserts.state import AppState, latest_user_question
 from medical_deserts.config import Config
 
 
@@ -89,7 +89,7 @@ class GeoAgent:
                 "analytics_executed": state.get("analytics_executed", []) + ["GeoAgent"]
             }
         
-        user_question = messages[-1].content.lower()
+        user_question = latest_user_question(state).lower()
         
         if "within" in user_question and ("km" in user_question or "miles" in user_question):
             result = self._proximity_analysis(user_question, facilities_df)

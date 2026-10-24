@@ -6,6 +6,7 @@ import os
 import sqlite3
 import json
 from typing import Dict, Any, List
+from medical_deserts.state import latest_user_question
 import pandas as pd
 from medical_deserts.config import Config
 from langchain_community.utilities import SQLDatabase
@@ -210,11 +211,13 @@ Generate SQL query:"""
     def execute_query(self, sql: str) -> Dict[str, Any]:
         """Execute SQL query and return results."""
         try:
-            conn = sqlite3.connect(self.db_path)
-            print("   Executing SQL query..." , conn)
-            df = pd.read_sql_query(sql, conn)
-            print(df)
-            conn.close()
+            # The SQL comes from an LLM, so open the database read-only:
+            # a generated DROP/DELETE/UPDATE fails instead of changing data.
+            conn = sqlite3.connect(f"file:{self.db_path}?mode=ro", uri=True)
+            try:
+                df = pd.read_sql_query(sql, conn)
+            finally:
+                conn.close()
             
             return {
                 "success": True,
@@ -240,7 +243,7 @@ Generate SQL query:"""
         Returns:
             Partial state update with SQL results
         """
-        user_question = state["messages"][-1].content
+        user_question = latest_user_question(state)
 
         print(f"\n🔍 SQL Agent received state: {state}")
         # Get normalized constraints from Domain Knowledge Agent
