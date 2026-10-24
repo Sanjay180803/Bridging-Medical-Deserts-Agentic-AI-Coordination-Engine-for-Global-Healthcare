@@ -1,0 +1,100 @@
+{"question": "How many hospitals are in California?", "intent": "SQL_QUERY"}
+{"question": "How many doctors practice in Texas?", "intent": "SQL_QUERY"}
+{"question": "Which state has the most hospitals?", "intent": "SQL_QUERY"}
+{"question": "Count the cardiologists in New York.", "intent": "SQL_QUERY"}
+{"question": "List the hospitals in Ohio.", "intent": "SQL_QUERY"}
+{"question": "How many facilities offer family medicine?", "intent": "SQL_QUERY"}
+{"question": "What is the average number of doctors per hospital?", "intent": "SQL_QUERY"}
+{"question": "How many neurologists are there in Illinois?", "intent": "SQL_QUERY"}
+{"question": "Which hospitals in Florida have more than 50 doctors?", "intent": "SQL_QUERY"}
+{"question": "How many departments does the dataset track?", "intent": "SQL_QUERY"}
+{"question": "Which city in Pennsylvania has the most facilities?", "intent": "SQL_QUERY"}
+{"question": "How many hospitalist groups are in Georgia?", "intent": "SQL_QUERY"}
+{"question": "Show the number of doctors by specialty in Michigan.", "intent": "SQL_QUERY"}
+{"question": "How many OB/GYN doctors are in North Carolina?", "intent": "SQL_QUERY"}
+{"question": "Which five hospitals have the most affiliated doctors?", "intent": "SQL_QUERY"}
+{"question": "How many internal medicine physicians are in Ohio?", "intent": "SQL_QUERY"}
+{"question": "What share of hospitals are in Texas?", "intent": "SQL_QUERY"}
+{"question": "What services does a typical addiction treatment center offer?", "intent": "VECTOR_QUERY"}
+{"question": "Find facilities that describe themselves as behavioral health providers.", "intent": "VECTOR_QUERY"}
+{"question": "Which facilities mention kidney care in their descriptions?", "intent": "VECTOR_QUERY"}
+{"question": "Describe the services offered by hospitalist groups.", "intent": "VECTOR_QUERY"}
+{"question": "Find clinics that focus on women's health.", "intent": "VECTOR_QUERY"}
+{"question": "What do multispecialty medical groups typically provide?", "intent": "VECTOR_QUERY"}
+{"question": "Which facilities sound like they offer urgent care?", "intent": "VECTOR_QUERY"}
+{"question": "Find providers whose descriptions mention pediatric care.", "intent": "VECTOR_QUERY"}
+{"question": "What kinds of organizations describe themselves as primary care practices?", "intent": "VECTOR_QUERY"}
+{"question": "Search for facilities related to sleep medicine.", "intent": "VECTOR_QUERY"}
+{"question": "Find facilities similar to an inpatient services company.", "intent": "VECTOR_QUERY"}
+{"question": "Which providers describe acute care services?", "intent": "VECTOR_QUERY"}
+{"question": "What does an academic hospitalist management group do?", "intent": "VECTOR_QUERY"}
+{"question": "Find facilities that mention telehealth.", "intent": "VECTOR_QUERY"}
+{"question": "Look for providers offering wound care.", "intent": "VECTOR_QUERY"}
+{"question": "Which facility descriptions mention cancer treatment?", "intent": "VECTOR_QUERY"}
+{"question": "How many hospitals are within 50 km of Los Angeles?", "intent": "GEO_QUERY"}
+{"question": "What is the geographic distribution of facilities across states?", "intent": "GEO_QUERY"}
+{"question": "Which hospitals are closest to Houston?", "intent": "GEO_QUERY"}
+{"question": "How far is the nearest hospital from Malibu?", "intent": "GEO_QUERY"}
+{"question": "Show facilities within 20 miles of Chicago.", "intent": "GEO_QUERY"}
+{"question": "Map the hospitals in the Southeast.", "intent": "GEO_QUERY"}
+{"question": "Which regions have the densest concentration of facilities?", "intent": "GEO_QUERY"}
+{"question": "How are hospitals spread across rural and urban Texas?", "intent": "GEO_QUERY"}
+{"question": "What is the nearest facility to Stockton, California?", "intent": "GEO_QUERY"}
+{"question": "Which states border the most facilities?", "intent": "GEO_QUERY"}
+{"question": "Plot hospital locations in Pennsylvania.", "intent": "GEO_QUERY"}
+{"question": "How many facilities lie within 100 km of Atlanta?", "intent": "GEO_QUERY"}
+{"question": "Which cities in Florida are farthest from any hospital?", "intent": "GEO_QUERY"}
+{"question": "Show the spatial clustering of hospitals in Ohio.", "intent": "GEO_QUERY"}
+{"question": "What is the distance between the two largest hospitals in New York?", "intent": "GEO_QUERY"}
+{"question": "Where are facilities located in Michigan?", "intent": "GEO_QUERY"}
+{"question": "Which hospitals are within an hour's drive of Raleigh?", "intent": "GEO_QUERY"}
+{"question": "Which facilities claim neurosurgery but lack an ICU?", "intent": "ANALYTICS_QUERY"}
+{"question": "Find data quality issues in the hospital records.", "intent": "ANALYTICS_QUERY"}
+{"question": "Which hospitals list capabilities without the equipment to support them?", "intent": "ANALYTICS_QUERY"}
+{"question": "Are there systemic contradictions in facility claims?", "intent": "ANALYTICS_QUERY"}
+{"question": "Which regions are medical deserts for cardiology?", "intent": "ANALYTICS_QUERY"}
+{"question": "How accessible is dialysis in rural areas?", "intent": "ANALYTICS_QUERY"}
+{"question": "Classify the medical deserts in the dataset.", "intent": "ANALYTICS_QUERY"}
+{"question": "Which facilities have inconsistent specialty and department data?", "intent": "ANALYTICS_QUERY"}
+{"question": "Find hospitals that claim emergency services but list no emergency staff.", "intent": "ANALYTICS_QUERY"}
+{"question": "What are the most common data quality patterns?", "intent": "ANALYTICS_QUERY"}
+{"question": "Which areas are underserved for obstetrics?", "intent": "ANALYTICS_QUERY"}
+{"question": "Score the reachability of oncology care by state.", "intent": "ANALYTICS_QUERY"}
+{"question": "Detect skill and infrastructure mismatches.", "intent": "ANALYTICS_QUERY"}
+{"question": "Where are the gaps in mental health coverage?", "intent": "ANALYTICS_QUERY"}
+{"question": "Which facilities have missing capability information?", "intent": "ANALYTICS_QUERY"}
+{"question": "Identify cold spots for pediatric care.", "intent": "ANALYTICS_QUERY"}
+{"question": "How reliable are the facility capability claims?", "intent": "ANALYTICS_QUERY"}
+{"question": "What if we add 5 dialysis centers in rural Texas?", "intent": "COUNTERFACTUAL_QUERY"}
+{"question": "What happens to coverage if two hospitals in Ohio close?", "intent": "COUNTERFACTUAL_QUERY"}
+{"question": "Simulate opening a cardiology clinic in Fresno.", "intent": "COUNTERFACTUAL_QUERY"}
+{"question": "If we doubled the doctors in Georgia, how would access change?", "intent": "COUNTERFACTUAL_QUERY"}
+{"question": "What would happen if a new trauma center opened near Houston?", "intent": "COUNTERFACTUAL_QUERY"}
+{"question": "Suppose three rural hospitals in Pennsylvania shut down; what changes?", "intent": "COUNTERFACTUAL_QUERY"}
+{"question": "How would adding a maternity ward in Stockton affect the region?", "intent": "COUNTERFACTUAL_QUERY"}
+{"question": "What if every state had one more neurology department?", "intent": "COUNTERFACTUAL_QUERY"}
+{"question": "Model the impact of closing the largest hospital in Chicago.", "intent": "COUNTERFACTUAL_QUERY"}
+{"question": "If we relocate a clinic from Malibu to Porterville, who gains access?", "intent": "COUNTERFACTUAL_QUERY"}
+{"question": "What if telehealth replaced 10 rural clinics in Michigan?", "intent": "COUNTERFACTUAL_QUERY"}
+{"question": "Simulate adding 20 primary care doctors to North Carolina.", "intent": "COUNTERFACTUAL_QUERY"}
+{"question": "What would coverage look like if Florida added two oncology centers?", "intent": "COUNTERFACTUAL_QUERY"}
+{"question": "Suppose a new hospital opens in rural Georgia; how do the deserts change?", "intent": "COUNTERFACTUAL_QUERY"}
+{"question": "What if Illinois lost half of its hospitalists?", "intent": "COUNTERFACTUAL_QUERY"}
+{"question": "Imagine adding a burn unit in Columbus; what changes?", "intent": "COUNTERFACTUAL_QUERY"}
+{"question": "Compare cardiology coverage across regions with accessibility scores.", "intent": "HYBRID_QUERY"}
+{"question": "Which states have the most doctors and the worst reachability?", "intent": "HYBRID_QUERY"}
+{"question": "Count oncology providers by state and identify which are medical deserts.", "intent": "HYBRID_QUERY"}
+{"question": "List hospitals in Texas and assess their data quality.", "intent": "HYBRID_QUERY"}
+{"question": "Compare the number of OB/GYN doctors with distance to care in rural Georgia.", "intent": "HYBRID_QUERY"}
+{"question": "Rank states by hospital count and show capability mismatches.", "intent": "HYBRID_QUERY"}
+{"question": "How many neurologists are in each region and how accessible are they?", "intent": "HYBRID_QUERY"}
+{"question": "Find California hospitals with addiction services and map their locations.", "intent": "HYBRID_QUERY"}
+{"question": "Compare doctor counts and desert classification for Ohio and Michigan.", "intent": "HYBRID_QUERY"}
+{"question": "Which regions have many facilities but poor specialty coverage?", "intent": "HYBRID_QUERY"}
+{"question": "Summarize hospital counts and the main data quality issues per state.", "intent": "HYBRID_QUERY"}
+{"question": "Show pediatric providers per state alongside their reachability scores.", "intent": "HYBRID_QUERY"}
+{"question": "Compare urban and rural Pennsylvania on facility count and accessibility.", "intent": "HYBRID_QUERY"}
+{"question": "Which states have high doctor counts but contradictory capability claims?", "intent": "HYBRID_QUERY"}
+{"question": "Count dialysis-capable facilities and evaluate coverage gaps nationally.", "intent": "HYBRID_QUERY"}
+{"question": "List the largest hospitals in Florida and check whether their claims are consistent.", "intent": "HYBRID_QUERY"}
+{"question": "Compare mental health provider numbers with underserved areas in Illinois.", "intent": "HYBRID_QUERY"}
